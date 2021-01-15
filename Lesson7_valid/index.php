@@ -60,7 +60,7 @@ function isformValid(array $formData): array
   // валидация имени
   if (empty($_POST["name"])) {
     $mistakes[] = "В поле имя Вы ничего не ввели!<br>";
-  } else if (!preg_match("/^[а-яА-ЯёЁa-zA-Z0-9\s]+$/", $_POST["name"])) {
+  } else if (!preg_match("/^[а-яА-ЯёЁa-zA-Z0-9\s]+$/u", $_POST["name"])) {
     $mistakes[] = 'В поле имя Вы ввели недопустимые символы<br><br>';
   }   
   // валидация возраста
