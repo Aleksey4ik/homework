@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 $x = 5;
-$y = '10as';
+$y = 'asd10';
 
 function summa(int $a, int $b): int
 {
@@ -17,22 +17,16 @@ try {
     if (is_numeric($x) && is_numeric($y)) {
         $x = (int)$x;
         $y = (int)$y;
-    }
-} catch (Throwable $e) {
-    echo $e->getMessage() . "\n";
-}
-
-
-try {
-    if (!is_int($x) || !is_int($y)) {
+        $summa = summa($x, $y);        
+    } else {        
+        try {
         throw new InvalidArgumentException("Переменные(-ая) не являются целыми числами!");
-    }
-    $summa = summa($x, $y);
-    echo $summa;
-} catch (InvalidArgumentException $e) {
-    echo $e->getMessage() . "\n";
-} catch (Throwable $e) {
-    echo $e->getMessage();
+        }  catch (InvalidArgumentException $e) {
+            echo $e->getMessage() . "\n";
+        } catch (Throwable $e) {
+            echo $e->getMessage() . "\n";
+        }
+	}
 }
 
 
