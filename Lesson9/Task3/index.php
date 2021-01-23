@@ -10,8 +10,8 @@ function decodeAndPrintJson($myFile): void      // тут просто)
     }
 
     fclose($file);
-    $fileJson = json_decode($str);
-    print_r($fileJson);
+    $objPhp = json_decode($str);
+    print_r($objPhp);
 }
 
 
