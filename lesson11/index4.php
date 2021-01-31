@@ -14,7 +14,7 @@ trait hasBirthday
         $this->dateTime = new DateTime($date);
     }
 
-    public function getDateTime(): object
+    public function getDateTime(): DateTime
     {
         return $this->dateTime;
     }    
