@@ -6,3 +6,13 @@
 *.code-workspace
 
 .history/
+
+.vendor/
+./*/vendor/
+./*/*/vendor/
+./*/*/*/vendor/
+./*/*/*/*/vendor/
+
+composer.json
+composer.phar
+composer.lock
