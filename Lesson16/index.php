@@ -45,22 +45,19 @@ function areaWithTolerance(mysqli $link, int $area, int $tolerance, int $amountR
     $min = $area - $tolerance;
     $max = $area + $tolerance;
 
-    $query = "SELECT * FROM apartments WHERE area BETWEEN ? AND ?";
+    $query = "SELECT * FROM apartments WHERE area BETWEEN ? AND ? LIMIT ?";
     $stmt = $link->prepare($query);
-    $stmt->bind_param('ii', $min, $max);
+    $stmt->bind_param('iii', $min, $max, $amountRows);
     $stmt->execute();
     $res = $stmt->get_result();
 
-    $i=1;
     if ($typeRutern) {  
-        while (($row = $res->fetch_object('Apatment')) && $i <= $amountRows) {
+        while ($row = $res->fetch_object('Apatment')) {
             $array[] = $row;
-            $i++;
         }
     } else {
-        while (($row = $res->fetch_assoc()) && $i <= $amountRows) {
+        while ($row = $res->fetch_assoc()) {
             $array[] = $row;
-            $i++;
         }
     }
 
@@ -81,7 +78,7 @@ foreach ($apatments as $value) {
     addApartmentIntoTable($link, $value[0], $value[1], $value[2], $value[3]);
 }
 
-print_r(areaWithTolerance($link, 50, 10, 5, 1));     
-// $res->free();
+print_r(areaWithTolerance($link, 50, 10, 3, 1));    
+
 $link->close();
 
