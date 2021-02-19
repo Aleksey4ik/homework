@@ -1,4 +1,5 @@
 <?php
+// https://leetcode.com/problems/min-cost-climbing-stairs/
 
 // $arr = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1];
 $arr = [10, 15, 20];
